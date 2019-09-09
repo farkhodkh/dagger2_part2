@@ -1,10 +1,15 @@
 package com.example.dagger2
 
 import dagger.Component
+import javax.inject.Singleton
 
-@Component
+@Singleton
+@Component(modules = [DaggerModuleObject::class, DaggerModule::class])
 interface DaggerComponent {
     fun getCar(): Car
     fun getEngine(): Engine
     fun getFuel(): Fuel
+    fun getKey(): Key
+
+    fun inject(act: MainActivity)
 }
